@@ -3,3 +3,12 @@
     background-size: cover;
     height: 100vh;
 }
+
+.nav-link {
+    font-weight: 400 !important;
+}
+
+.page-content {
+    min-height: 75vh;
+    padding-top: 10px;
+}

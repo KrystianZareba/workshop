@@ -19,6 +19,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{URL::to('/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{URL::to('/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{URL::to('/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{URL::to('/site.webmanifest')}}">
 </head>
 <body>
 
@@ -35,6 +41,7 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 
-<script src="{{ asset('js/app.js') }}" defer></script>
+    @include('includes.notifications')
+
 </body>
 </html>

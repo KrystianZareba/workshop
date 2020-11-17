@@ -14,23 +14,9 @@
                             </div>
                         @endif
 
-                        <div class="md-form pb-2">
-                            {!! Form::text('email', null, ['class' => $errors->has('email') ? 'form-control is-invalid' : 'form-control']) !!}
-                            {!! Form::label('email', 'E-mail') !!}
+                        @include('components.form.input', ['type' => 'text', 'name' => 'email', 'label' => 'E-mail', 'className' => 'pb-2'])
 
-                            <div class="invalid-feedback">
-                                {{$errors->first('email')}}
-                            </div>
-                        </div>
-
-                        <div class="md-form pb-4">
-                            {!! Form::password('password', ['class' => $errors->has('password') ? 'form-control is-invalid' : 'form-control']) !!}
-                            {!! Form::label('password', 'Hasło') !!}
-
-                            <div class="invalid-feedback">
-                                {{$errors->first('password')}}
-                            </div>
-                        </div>
+                        @include('components.form.input', ['type' => 'password', 'name' => 'password', 'label' => 'Hasło', 'className' => 'pb-2'])
 
                         <button class="btn btn-yellow btn-block my-4" type="submit">Zaloguj się</button>
                     {!! Form::close() !!}

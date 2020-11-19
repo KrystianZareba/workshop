@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +23,17 @@ Route::group(['middleware' => ['auth']], function(){
     })->name('home');
 
     /* Account */
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/changePassword', [UserController::class, 'changePassword'])->name('changePassword');
-    Route::put('/changePassword', [UserController::class, 'updatePassword'])->name('updatePassword');
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('changePassword', [UserController::class, 'changePassword'])->name('changePassword');
+    Route::put('changePassword', [UserController::class, 'updatePassword'])->name('updatePassword');
+
+    /* Contractors */
+    Route::resource('/contractors', ContractorController::class);
+
+    /* Cars */
+    Route::prefix('contractors/{contractor}')->group(function(){
+        Route::resource('cars', CarController::class);
+    });
 });
 
 Route::group(['middleware' => ['auth', 'admin']], function(){
@@ -32,6 +42,6 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 });
 
 Route::group(['middleware' => ['guest']], function(){
-    Route::get('/login', [LoginController::class, 'show'])->name('login');
-    Route::post('/login', [LoginController::class, 'login'])->name('login.post');
+    Route::get('login', [LoginController::class, 'show'])->name('login');
+    Route::post('login', [LoginController::class, 'login'])->name('login.post');
 });

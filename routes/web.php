@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\RepairController;
+use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,10 @@ Route::group(['middleware' => ['auth']], function(){
 Route::group(['middleware' => ['auth', 'admin']], function(){
     /* Users */
     Route::resource('users', UserController::class);
+
+    /* Statistics */
+    Route::get('statistics', [StatisticsController::class, 'index'])->name('statistics');
+    Route::get('statistics/data/{offset?}', [StatisticsController::class, 'apiData']);
 });
 
 Route::group(['middleware' => ['guest']], function(){

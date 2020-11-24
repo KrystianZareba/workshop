@@ -19,6 +19,9 @@
                 <li class="nav-item @if(Request::segment(1) === 'users') active @endif">
                     <a class="nav-link" href="{{ route('users.index') }}">Użytkownicy</a>
                 </li>
+                <li class="nav-item @if(Request::segment(1) === 'statistics') active @endif">
+                    <a href="{{ route('statistics') }}" class="nav-link">Statystyki</a>
+                </li>
             @endif
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">

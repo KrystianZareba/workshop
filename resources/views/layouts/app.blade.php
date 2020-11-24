@@ -47,9 +47,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
 <script src="{{URL::to('js/app.js')}}" type="text/javascript"></script>
 
     @include('includes.notifications')
+
+@yield('scripts')
 
 </body>
 </html>

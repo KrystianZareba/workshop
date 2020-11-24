@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class AbstractRepository
 {
-    /** @var Model $model */
+    /** @var string|Model $model */
     protected $model;
 
     public function __construct()
@@ -19,10 +19,12 @@ abstract class AbstractRepository
      * @return \Illuminate\Database\Eloquent\Collection|Model[]
      */
     public function index($limit = 25){
+        $query = $this->model->orderBy('created_at', 'desc');
+
         if($limit === 0)
-            return $this->model->all();
+            return $query->get();
         else
-            return $this->model->paginate($limit);
+            return $query->paginate($limit);
     }
 
     /**

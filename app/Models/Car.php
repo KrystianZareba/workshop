@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Car extends Model
 {
-    protected $fillable = ['contractor_id', 'brand', 'model', 'registration_number', 'production_year', 'engine'];
+    protected array $fillable = ['contractor_id', 'brand', 'model', 'registration_number', 'production_year', 'engine'];
 
     /**
      * @return BelongsTo

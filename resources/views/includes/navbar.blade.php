@@ -5,8 +5,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item @if(Request::segment(1) === null) active @endif">
-                <a class="nav-link" href="{{ route('home') }}">Główna</a>
+            <li class="nav-item @if(Request::segment(1) === 'repairs') active @endif">
+                <a class="nav-link" href="{{ route('repairs.index') }}">
+                    Naprawy
+                </a>
             </li>
             <li class="nav-item @if(Request::segment(1) === 'contractors') active @endif">
                 <a href="{{ route('contractors.index') }}" class="nav-link">

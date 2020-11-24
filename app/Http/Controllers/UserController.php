@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Repository\UserRepository;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
+use App\Repositories\UserRepository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -17,7 +17,7 @@ class UserController extends Controller
     /**
      * @var UserRepository
      */
-    private $userRepository;
+    private UserRepository $userRepository;
 
     /**
      * UserController constructor.

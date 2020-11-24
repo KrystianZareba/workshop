@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Contractor extends Model
 {
-    protected $fillable = ['first_name', 'last_name'];
+    protected array $fillable = ['first_name', 'last_name'];
 
     /**
      * @return HasMany

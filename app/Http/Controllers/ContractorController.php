@@ -14,7 +14,7 @@ class ContractorController extends Controller
     /**
      * @var ContractorRepository
      */
-    private $contractorRepository;
+    private ContractorRepository $contractorRepository;
 
     /**
      * ContractorController constructor.

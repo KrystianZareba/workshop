@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ContractorController;
+use App\Http\Controllers\RepairController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/', function () {
-        return view('home');
+        return redirect()->route('repairs.index');
     })->name('home');
 
     /* Account */
@@ -27,8 +28,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('changePassword', [UserController::class, 'changePassword'])->name('changePassword');
     Route::put('changePassword', [UserController::class, 'updatePassword'])->name('updatePassword');
 
+    /* Repairs */
+    Route::resource('repairs', RepairController::class);
+
     /* Contractors */
-    Route::resource('/contractors', ContractorController::class);
+    Route::resource('contractors', ContractorController::class);
 
     /* Cars */
     Route::prefix('contractors/{contractor}')->group(function(){

@@ -15,7 +15,7 @@ class CarController extends Controller
     /**
      * @var CarRepository
      */
-    private $carRepository;
+    private CarRepository $carRepository;
 
     /**
      * CarController constructor.

@@ -20,7 +20,7 @@ class CarRequest extends FormRequest
     public function rules()
     {
         return [
-            'brand' => 'required',
+            'brand_id' => 'required',
             'model' => 'required',
             'registration_number' => 'required',
             'production_year' => 'required',

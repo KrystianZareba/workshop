@@ -22,7 +22,7 @@
             @foreach($cars as $car)
                 <tr>
                     <td>{{ $car->id }}</td>
-                    <td>{{ $car->brand }}</td>
+                    <td>{{ $car->brand->name }}</td>
                     <td>{{ $car->model }}</td>
                     <td>{{ $car->registration_number }}</td>
                     <td>{{ $car->production_year }}</td>

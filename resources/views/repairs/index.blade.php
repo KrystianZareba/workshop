@@ -31,7 +31,7 @@
                 <td>{{ $repair->id }}</td>
                 <td>{{ $repair->car->registration_number }}</td>
                 <td>{{ $repair->car->contractor->first_name }} {{ $repair->car->contractor->last_name }}</td>
-                <td>{{ $repair->created_at }}</td>
+                <td>{{ $repair->repairDate() }}</td>
                 <td>{{ $repair->description }}</td>
                 <td>{{ $repair->repair_time }}h</td>
                 <td>

@@ -1,7 +1,7 @@
 @extends('layouts.page')
 
 @section('title')
-    Edytuj pojazd {{ $car->brand }} {{ $car->model }}
+    Edytuj pojazd {{ $car->brand->name }} {{ $car->model }}
 @endsection
 
 @section('buttons')

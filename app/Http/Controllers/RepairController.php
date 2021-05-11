@@ -51,7 +51,7 @@ class RepairController extends Controller
      */
     public function create()
     {
-        $contractors = $this->contractorRepository->index(0);
+        $contractors = $this->contractorRepository->all();
 
         return view('repairs.create', compact('contractors'));
     }
@@ -73,7 +73,7 @@ class RepairController extends Controller
      */
     public function edit(Repair $repair)
     {
-        $contractors = $this->contractorRepository->index(0);
+        $contractors = $this->contractorRepository->all();
 
         return view('repairs.edit', compact('repair', 'contractors'));
     }

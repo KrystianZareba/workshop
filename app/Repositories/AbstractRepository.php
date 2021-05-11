@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 abstract class AbstractRepository
@@ -15,8 +16,16 @@ abstract class AbstractRepository
     }
 
     /**
+     * @return Collection|Model[]
+     */
+    public function all()
+    {
+        return $this->index(0);
+    }
+
+    /**
      * @param int $limit
-     * @return \Illuminate\Database\Eloquent\Collection|Model[]
+     * @return Collection|Model[]
      */
     public function index($limit = 25){
         $query = $this->model->orderBy('created_at', 'desc');

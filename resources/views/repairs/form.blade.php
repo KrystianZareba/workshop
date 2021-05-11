@@ -1,5 +1,6 @@
 <div class="row">
     <div class="col-6 offset-3 text-center">
+
         @include('repairs.form.select', ["name" => "car_id"])
 
         @include('components.form.input', ['type' => 'text', 'name' => 'description', 'label' => 'Opis'])
@@ -17,6 +18,14 @@
         ])
 
         @include('components.form.input', ['type' => 'hidden', 'name' => 'created_by', 'value' => Auth::id()])
+
+        @include('components.form.input', [
+            'type' => 'text',
+            'name' => 'repair_date',
+            'label' => 'Data naprawy',
+            'className' => 'datepicker',
+            'value' => isset($repair) ? $repair->repairDate() : date('Y-m-d')
+        ])
 
         @include('components.form.submit')
     </div>

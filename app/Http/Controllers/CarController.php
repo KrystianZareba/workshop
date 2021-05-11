@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CarRequest;
 use App\Models\Car;
 use App\Models\Contractor;
+use App\Repositories\BrandRepository;
 use App\Repositories\CarRepository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -16,14 +17,23 @@ class CarController extends Controller
      * @var CarRepository
      */
     private CarRepository $carRepository;
+    /**
+     * @var BrandRepository
+     */
+    private BrandRepository $brandRepository;
 
     /**
      * CarController constructor.
      * @param CarRepository $carRepository
+     * @param BrandRepository $brandRepository
      */
-    public function __construct(CarRepository $carRepository)
+    public function __construct(
+        CarRepository $carRepository,
+        BrandRepository $brandRepository
+    )
     {
         $this->carRepository = $carRepository;
+        $this->brandRepository = $brandRepository;
     }
 
     /**
@@ -32,7 +42,9 @@ class CarController extends Controller
      */
     public function create(Contractor $contractor)
     {
-        return view('cars.create', compact('contractor'));
+        $brands = $this->brandRepository->all()->pluck('name', 'id');
+
+        return view('cars.create', compact('contractor', 'brands'));
     }
 
     /**
@@ -54,7 +66,9 @@ class CarController extends Controller
      */
     public function edit(Contractor $contractor, Car $car)
     {
-        return view('cars.edit', compact('contractor', 'car'));
+        $brands = $this->brandRepository->all()->pluck('name', 'id');
+
+        return view('cars.edit', compact('contractor', 'brands', 'car'));
     }
 
     /**

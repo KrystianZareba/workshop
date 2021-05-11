@@ -15,13 +15,16 @@ class CreateRepairsTable extends Migration
     {
         Schema::create('repairs', function (Blueprint $table) {
             $table->id();
-            $table->integer('car_id');
-            $table->integer('created_by');
+            $table->unsignedBigInteger('car_id');
+            $table->unsignedBigInteger('created_by');
             $table->string('description');
             $table->float('parts_cost');
             $table->float('repair_cost');
             $table->float('repair_time');
             $table->timestamps();
+
+            $table->foreign('car_id')->references('id')->on('cars');
+            $table->foreign('created_by')->references('id')->on('users');
         });
     }
 

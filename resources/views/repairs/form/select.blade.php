@@ -5,7 +5,7 @@
             <optgroup label="{{ $contractor->first_name }} {{ $contractor->last_name }}">
                 @foreach($contractor->cars as $car)
                     <option value="{{ $car->id }}" @if(isset($repair) && $repair->car_id === $car->id) selected @endif>
-                        {{ $car->brand }} {{ $car->model }} | {{ $car->registration_number }}
+                        {{ $car->brand->name }} {{ $car->model }} | {{ $car->registration_number }}
                     </option>
                 @endforeach
             </optgroup>
